@@ -9,7 +9,6 @@ Dir["./app/models/*.rb"].each {|file| require file }
 #  require file
 #end
 
-
 class App < Sinatra::Base
   get '/sinatra' do
     'Hello world! Sinatra !'
