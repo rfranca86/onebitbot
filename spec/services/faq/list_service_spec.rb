@@ -61,9 +61,13 @@ describe FaqModule::ListService do
       @listService = FaqModule::ListService.new({'query' => hashtag.name}, 'search_by_hashtag')
 
       response = @listService.call()
+      puts response
+      puts ":" * 5
+      puts faq.question
+      puts faq.answer
 
-      expect(response).to eq(faq.question)
-      expect(response).to eq(faq.answer)
+      expect(response).to match(faq.question)
+      expect(response).to match(faq.answer)
     end
   end
 end
