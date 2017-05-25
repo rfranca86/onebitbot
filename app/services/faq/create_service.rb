@@ -9,7 +9,7 @@ module FaqModule
     end
 
     def call
-      if @hashtags == nil || @hashtags == ""
+      if @hashtags == nil || @hashtags == ''
         return "Hashtag Obrigatória"
       end
       begin
