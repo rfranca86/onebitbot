@@ -3,7 +3,7 @@ module AddLinkModule
     def initialize(params)
       # TODO: identify origin and set company
       @company = Company.last
-      @add_link= params["link-original"]
+      @add_link= params["add_link-original"]
       @hashtags = params["hashtags-original"]
     end
 
