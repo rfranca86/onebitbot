@@ -6,7 +6,6 @@ module FaqModule
       @question = params["question-original"]
       @answer = params["answer-original"]
       @hashtags = params["hashtags-original"]
-      @link = params["link-original"]
     end
 
     def call
