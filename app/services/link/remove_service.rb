@@ -14,7 +14,7 @@ module AddLinkModule
         return "Questão inválida, verifique o Id"
       end
 
-      Faq.transaction do
+      AddLink.transaction do
         # Deleta as tags associadas que não estejam associadas a outros faqs
         link.hashtags.each do |h|
           if h.add_links.count <= 1
