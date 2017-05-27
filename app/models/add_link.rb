@@ -6,7 +6,7 @@ class AddLink < ActiveRecord::Base
 
   has_many :add_link_hashtags
   has_many :hashtags, through: :add_link_hashtags
-  belongs_to :company_id
+  belongs_to :company
 
   pg_search_scope :search, :against => [:link]
 end
