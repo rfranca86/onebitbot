@@ -13,7 +13,7 @@ module AddLinkModule
       end
       begin
         AddLink.transaction do
-          add_link = Faq.create(link: @link, company: @company)
+          add_link = AddLink.create(link: @link, company: @company)
           @hashtags.split(/[\s,]+/).each do |hashtag|
             add_link.hashtags << Hashtag.create(name: hashtag)
           end
