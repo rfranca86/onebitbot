@@ -20,7 +20,7 @@ module AddLinkModule
         end
         "Criado com sucesso"
       rescue
-        "Problemas na criação"
+        "Problemas na criação" puts link, link.hashtags
       end
     end
   end
