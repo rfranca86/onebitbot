@@ -3,7 +3,7 @@ module LinkModule
     def initialize(params)
       # TODO: identify origin and set company
       @company = Company.last
-      @link= params["link-original"]
+      @url= params["url-original"]
       @hashtags = params["hashtags-original"]
     end
 
@@ -13,7 +13,7 @@ module LinkModule
       end
       begin
         Link.transaction do
-          add_link = Link.create!(link: @link, company: @company)
+          add_link = Link.create!(url: @url, company: @company)
           @hashtags.split(/[\s,]+/).each do |hashtag|
             add_link.hashtags << Hashtag.create(name: hashtag)
           end
