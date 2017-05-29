@@ -1,4 +1,4 @@
-module AddLinkModule
+module LinkModule
   class RemoveService
     def initialize(params)
       # TODO: identify origin and set company
@@ -9,15 +9,15 @@ module AddLinkModule
 
     def call
       begin
-        link = @company.add_links.find(@id)
+        link = @company.links.find(@id)
       rescue
         return "Questão inválida, verifique o Id"
       end
 
-      AddLink.transaction do
+      Link.transaction do
         # Deleta as tags associadas que não estejam associadas a outros faqs
         link.hashtags.each do |h|
-          if h.add_links.count <= 1
+          if h.links.count <= 1
             h.delete
           end
         end

@@ -8,11 +8,11 @@ class InterpretService
     when "remove"
       FaqModule::RemoveService.new(params).call()
     when "create_link"
-      AddLinkModule::CreateService.new(params).call()
+      LinkModule::CreateService.new(params).call()
     when "list_link", "search_by_link", "search_by_link_hashtag"
-      AddLinkModule::ListService.new(params, action).call()
+      LinkModule::ListService.new(params, action).call()
     when "remove_link"
-      AddLinkModule::RemoveService.new(params).call()
+      LinkModule::RemoveService.new(params).call()
     when "help"
       HelpService.call()
     else

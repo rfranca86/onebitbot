@@ -1,4 +1,4 @@
-module AddLinkModule
+module LinkModule
   class ListService
     def initialize(params, action)
       # TODO: identify origin and set company
@@ -9,16 +9,16 @@ module AddLinkModule
 
     def call
       if @action == "search"
-        links = AddLink.search(@query).where(company: @company)
+        links = Link.search(@query).where(company: @company)
       elsif @action == "search_by_hashtag"
         links = []
-        @company.add_links.each do |link|
+        @company.links.each do |link|
           link.hashtags.each do |hashtag|
             links << link if hashtag.name == @query
           end
         end
       else
-        links = @company.add_links
+        links = @company.links
       end
 
       response = "*Perguntas e Respostas* \n\n"
