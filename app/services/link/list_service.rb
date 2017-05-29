@@ -20,18 +20,17 @@ module LinkModule
       else
         links = @company.links
       end
-
-      response = "*Perguntas e Respostas* \n\n"
-      faqs.each do |f|
-        response += "*#{f.id}* - "
-        response += "*#{f.question}*\n"
-        response += ">#{f.answer}\n"
-        f.hashtags.each do |h|
-          response += "_##{h.name}_ "
+        response = "*Links:* \n\n"
+        links.each do |f|
+          response += "*#{f.id}* - "
+          response += "*#{f.question}*\n"
+          response += ">#{f.answer}\n"
+          f.hashtags.each do |h|
+            response += "_##{h.name}_ "
+          end
+          response += "\n\n"
         end
-        response += "\n\n"
-      end
-      (faqs.count > 0)? response : "Nada encontrado"
+        (links.count > 0)? response : "Nada encontrado"
     end
   end
 end
